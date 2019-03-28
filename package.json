@@ -8,7 +8,7 @@
     "name": "Gil Tayar"
   },
   "scripts": {
-    "start": "serve -l 3000"
+    "start": "serve -l 3000 src"
   },
   "dependencies": {
   },
