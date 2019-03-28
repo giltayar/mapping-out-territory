@@ -1,0 +1,18 @@
+{
+  "name": "frontend-testing-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "email": "gil@tayar.org",
+    "name": "Gil Tayar"
+  },
+  "scripts": {
+    "start": "serve -l 3000"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "serve": "^10.1.2"
+  }
+}
