@@ -1,0 +1,4 @@
+{
+  "watchForFileChanges": false,
+  "integrationFolder": "test/e2e"
+}

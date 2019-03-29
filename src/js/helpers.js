@@ -5,7 +5,7 @@
  * @param {Element} [scope] Optional scope element for the selector
  */
 export function qs(selector, scope) {
-	return (scope || document).querySelector(selector);
+  return (scope || document).querySelector(selector);
 }
 
 /**
@@ -17,7 +17,7 @@ export function qs(selector, scope) {
  * @param {boolean} [capture] Capture the event
  */
 export function $on(target, type, callback, capture) {
-	target.addEventListener(type, callback, !!capture);
+  target.addEventListener(type, callback, !!capture);
 }
 
 /**
@@ -31,20 +31,20 @@ export function $on(target, type, callback, capture) {
  * @param {boolean} [capture] Capture the event
  */
 export function $delegate(target, selector, type, handler, capture) {
-	const dispatchEvent = event => {
-		const targetElement = event.target;
-		const potentialElements = target.querySelectorAll(selector);
-		let i = potentialElements.length;
+  const dispatchEvent = event => {
+    const targetElement = event.target;
+    const potentialElements = target.querySelectorAll(selector);
+    let i = potentialElements.length;
 
-		while (i--) {
-			if (potentialElements[i] === targetElement) {
-				handler.call(targetElement, event);
-				break;
-			}
-		}
-	};
+    while (i--) {
+      if (potentialElements[i] === targetElement) {
+        handler.call(targetElement, event);
+        break;
+      }
+    }
+  };
 
-	$on(target, type, dispatchEvent, !!capture);
+  $on(target, type, dispatchEvent, !!capture);
 }
 
 /**
@@ -55,4 +55,4 @@ export function $delegate(target, selector, type, handler, capture) {
  *
  * @returns {string} String with unsafe characters escaped with entity codes
  */
-export const escapeForHTML = s => s.replace(/[&<]/g, c => c === '&' ? '&amp;' : '&lt;');
+export const escapeForHTML = s => s.replace(/[&<]/g, c => (c === '&' ? '&amp;' : '&lt;'));

@@ -8,11 +8,22 @@
     "name": "Gil Tayar"
   },
   "scripts": {
-    "start": "serve -l 3000 src"
+    "start": "serve -l 3000 src",
+    "test": "npm run eslint && start-test 3000 cypress:run",
+    "test:sample-solution": "npm run eslint && start-test 3000 cypress:run:sample-solution",
+    "cypress:run": "cypress run --browser chrome",
+    "cypress:run:sample-solution": "cypress run --config integrationFolder=test-sample-solution/e2e --browser chrome",
+    "cypress:open": "cypress open",
+    "cypress:open:sample-solution": "cypress open --config integrationFolder=test-sample-solution/e2e",
+    "eslint": "eslint 'src/**/*.js' 'test/**/*.js' 'test-sample-solution/**/*.js'"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "serve": "^10.1.2"
+    "cypress": "^3.2.0",
+    "eslint": "^5.15.3",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4",
+    "serve": "^10.1.2",
+    "start-server-and-test": "^1.7.12"
   }
 }
