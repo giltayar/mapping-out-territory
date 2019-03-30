@@ -1,1 +1,87 @@
 # Instructions for Part 3: Integration Tests
+
+## Adding Mocha
+
+We need to use Mocha for our tests, so let's first install it, and use it in our script:
+
+### Installing Mocha
+
+Usually, mocha is installed along with Chai. We'll also install a chai plugin, `chai-dom`, that is useful
+for querying the DOM.
+
+```sh
+npm install --save-dev mocha chai chai-dom
+```
+
+### Installing esm
+
+Remember that we need the `esm` package to enable ES Module `import` statements? Let's install it:
+
+```sh
+npm install --save-dev esm
+```
+
+### Adding a script that enables us to run it
+
+Theoretically, we can just run mocha using `npx mocha -r esm 'test/it/*.it.js'`, but that would not be nice.
+But we can add a script to the `package.json`. So open the `package.json` and add the following script:
+
+```json
+  "scripts": {
+    "mocha": " mocha -r esm 'test/it/*.js'"
+  }
+```
+
+Now we can run the tests using `npm run mocha`.
+
+### Running the tests using a debugger
+
+Out of the goodness of my heart, I have added a `.vscode/launch.json` that enables you to debug your Mocha tests
+in Visual Studio Code.
+
+To debug the test, set the breakpoints in VS Code, and press \<F5>. You can even put breakpoints
+in the application code in the `src` directory! That's the huge benefit of running integration
+tests in Node.JS.
+
+
+## Writing the tests in `todo-actions.it.js`
+
+1. Open the file `tests/it/todo-actions.it.js`
+1. Remove the `throw new Error` in the first test.
+1. Write the code that tests what is defined to be tested in the comments in each test.
+1. Try it out using `npm run mocha` or the debugger, till it works.
+1. Now fix the third test in the file the same way, until all three tests pass.
+
+## Wrapping it up by automating running the tests
+
+Now we need to add the running of the integration tests to `npm test`,
+so change the `test` script in the `package.json` by adding a `&& npm run mocha` to the end of it.
+In this way, ESlint, Cypress tests, _and_ integration tests will run.
+
+
+## [Bonus] Writing the tests in `todo-filtering.e2e.js`
+
+1. This file is more barebones. But you still get the JSDOM wrapper.
+1. The comment describes what needs to be tested. Go ahead!
+
+> Note one interesting thing. Once you click on the filter button, this triggers a `hashchange` event.
+> Unfortunately, in JSDOM, this event will happen _asychronously_. So we need to wait on this.
+> The easiest way to do this is `setTimeout(0)`, but if we want to do it nicely, we will use Node's `promisify`:
+>
+> ```js
+> const {promisify} = require('util');
+> // ...
+> it('...', async () => {
+> // click on link...
+>
+> await promisify(setTimeout)(0);
+>
+> // hashchange event happened
+> expect($('...')).to.be.something;
+> })
+> ```
+
+## Done
+
+You're done. Wait for the last part, which will be
+[here](./4-unit-tests-instructions.md).
