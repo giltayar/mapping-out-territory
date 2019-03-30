@@ -12,6 +12,7 @@
 
 ## Opening Cypress and running the tests
 
+1. First, install Cypress using `npm install --save-dev cypress`.
 1. Let's open Cypress and see what passes and what fails.
 1. Run `npx cypress open`. This will open Cypress.
    * The first time, Cypress initializes stuff. No worries.
