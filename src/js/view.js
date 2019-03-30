@@ -19,6 +19,13 @@ export default class View {
     $delegate(this.$todoList, 'li label', 'dblclick', ({target}) => {
       this.editItem(target);
     });
+
+    // Hack because JSDOM doesn't support links
+    for (const filter of ['', 'active', 'completed'])
+      $on(qs(`.filters [href="#/${filter}"]`), 'click', e => {
+        window.location.hash = `/${filter}`;
+        e.preventDefault();
+      });
   }
 
   /**
