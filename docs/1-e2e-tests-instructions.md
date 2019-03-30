@@ -16,11 +16,11 @@
 1. Run `npx cypress open`. This will open Cypress.
    * The first time, Cypress initializes stuff. No worries.
    * You will get to a page that includes a list of all the tests.
-1. Click on the `todo-actions.js`. This will run the tests in the file.
+1. Click on the `todo-actions.e2e.js`. This will run the tests in the file.
 1. You can see from the window, that one tests passes, but two fail.
 1. These are the two tests you need to write.
 
-## Writing the tests in `todo-actions.js`
+## Writing the tests in `todo-actions.e2e.js`
 
 1. Remove the `throw new Error` in the first test.
 1. Write the code that tests what is defined to be tested in the comments in each test.
@@ -37,7 +37,7 @@
 We've just completed our E2E tests for TodoMVC. But running them is a bit awkward:
 
 1. First you `npm start` and run it in the background.
-2. Then you `npx cypress open` and choose the `todo-actions.js`
+2. Then you `npx cypress open` and choose the `todo-actions.e2e.js`
 
 This isn't very automated. And if you've just refactored your code and want to test it,
 you wouldn't want this klutzy way of running it, right?
@@ -90,7 +90,7 @@ So now we ne need to run `npm start`, run `cypress run` and then kill the `npm s
 `start-test 3000 cypress:run`, which comes from the `start-server-and-test` package, runs `npm start`, waits for the server to listen on the port `3000` we specified, and then `npm run`-s `cypress:run` we specified. Finally, once `cypress:run` is done,
 it will kill the `npm start` process. Very convenient package!
 
-## [Bonus] Writing the tests in `todo-filtering.js`
+## [Bonus] Writing the tests in `todo-filtering.e2e.js`
 
 1. This file is more barebones. You have to write everything!
 1. The comment describes what needs to be tested. Go ahead!
