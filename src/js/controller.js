@@ -42,17 +42,13 @@ export default class Controller {
    * @param {!string} title Title of the new item
    */
   addItem(title) {
-    this.store.insert(
-      {
-        id: Date.now(),
-        title,
-        completed: false
-      },
-      () => {
-        this.view.clearNewTodo();
-        this._filter(true);
-      }
-    );
+    this.store.insert({
+      id: Date.now(),
+      title,
+      completed: false
+    });
+    this.view.clearNewTodo();
+    this._filter(true);
   }
 
   /**
@@ -63,9 +59,8 @@ export default class Controller {
    */
   editItemSave(id, title) {
     if (title.length) {
-      this.store.update({id, title}, () => {
-        this.view.editItemDone(id, title);
-      });
+      this.store.update({id, title});
+      this.view.editItemDone(id, title);
     } else {
       this.removeItem(id);
     }
@@ -77,10 +72,10 @@ export default class Controller {
    * @param {!number} id ID of the Item in edit
    */
   editItemCancel(id) {
-    this.store.find({id}, data => {
-      const title = data[0].title;
-      this.view.editItemDone(id, title);
-    });
+    const data = this.store.find({id});
+
+    const title = data[0].title;
+    this.view.editItemDone(id, title);
   }
 
   /**
@@ -89,17 +84,18 @@ export default class Controller {
    * @param {!number} id Item ID of item to remove
    */
   removeItem(id) {
-    this.store.remove({id}, () => {
-      this._filter();
-      this.view.removeItem(id);
-    });
+    this.store.remove({id});
+    this._filter();
+    this.view.removeItem(id);
   }
 
   /**
    * Remove all completed items.
    */
   removeCompletedItems() {
-    this.store.remove({completed: true}, this._filter.bind(this));
+    this.store.remove({completed: true});
+
+    this._filter(true);
   }
 
   /**
@@ -109,9 +105,8 @@ export default class Controller {
    * @param {!boolean} completed Desired completed state
    */
   toggleCompleted(id, completed) {
-    this.store.update({id, completed}, () => {
-      this.view.setItemComplete(id, completed);
-    });
+    this.store.update({id, completed});
+    this.view.setItemComplete(id, completed);
   }
 
   /**
@@ -120,11 +115,11 @@ export default class Controller {
    * @param {boolean} completed Desired completed state
    */
   toggleAll(completed) {
-    this.store.find({completed: !completed}, data => {
-      for (let {id} of data) {
-        this.toggleCompleted(id, completed);
-      }
-    });
+    const data = this.store.find({completed: !completed});
+
+    for (let {id} of data) {
+      this.toggleCompleted(id, completed);
+    }
 
     this._filter();
   }
@@ -139,24 +134,24 @@ export default class Controller {
 
     if (force || this._lastActiveRoute !== '' || this._lastActiveRoute !== route) {
       /* jscs:disable disallowQuotedKeysInObjects */
-      this.store.find(
+      const data = this.store.find(
         {
           '': emptyItemQuery,
           active: {completed: false},
           completed: {completed: true}
-        }[route],
-        this.view.showItems.bind(this.view)
+        }[route]
       );
+      this.view.showItems(data);
       /* jscs:enable disallowQuotedKeysInObjects */
     }
 
-    this.store.count((total, active, completed) => {
-      this.view.setItemsLeft(active);
-      this.view.setClearCompletedButtonVisibility(completed);
+    const [total, active, completed] = this.store.count();
 
-      this.view.setCompleteAllCheckbox(completed === total);
-      this.view.setMainVisibility(total);
-    });
+    this.view.setItemsLeft(active);
+    this.view.setClearCompletedButtonVisibility(completed);
+
+    this.view.setCompleteAllCheckbox(completed === total);
+    this.view.setMainVisibility(total);
 
     this._lastActiveRoute = route;
   }
