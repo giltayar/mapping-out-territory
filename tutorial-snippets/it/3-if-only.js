@@ -1,4 +1,4 @@
-const {expect} = require('chai')
+const {expect} = require('chai');
 
 before(async function() {
   require('../src/dom-counter.js');
