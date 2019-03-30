@@ -89,6 +89,7 @@ export default class Store {
   /**
    * Count total, active, and completed todos.
    *
+   * @returns [total: number, active: number, completed: number]
    */
   count() {
     const data = this.find(emptyItemQuery);
