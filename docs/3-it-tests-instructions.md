@@ -34,7 +34,7 @@ But we can add a script to the `package.json`. So open the `package.json` and ad
 
 Now we can run the tests using `npm run mocha`.
 
-### Running the tests using a debugger
+## Running the tests using a debugger
 
 Out of the goodness of my heart, I have added a `.vscode/launch.json` that enables you to debug your Mocha tests
 in Visual Studio Code.
@@ -43,10 +43,22 @@ To debug the test, set the breakpoints in VS Code, and press \<F5>. You can even
 in the application code in the `src` directory! That's the huge benefit of running integration
 tests in Node.JS.
 
+## Running specific tests
+
+Let's say you're debugging one of the tests, and you want to run just that specific test. What do you do?
+In Mocha, it is easy: just add `.only` to the `it` call, thus:
+
+```js
+  it.only('should do something', () => {
+
+  })
+```
+
+You can add it to multiple `it` calls, or if you want a whole group, to the `describe`.
 
 ## Writing the tests in `todo-actions.it.js`
 
-1. Open the file `tests/it/todo-actions.it.js`
+1. Open the file `test/it/todo-actions.it.js`
 1. Remove the `throw new Error` in the first test.
 1. Write the code that tests what is defined to be tested in the comments in each test.
 1. Try it out using `npm run mocha` or the debugger, till it works.

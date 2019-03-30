@@ -23,7 +23,7 @@
 
 ## Writing the tests in `todo-actions.e2e.js`
 
-1. Open the file `tests/e2e/todo-actions.e2e.js`
+1. Open the file `test/e2e/todo-actions.e2e.js`
 1. Remove the `throw new Error` in the first test.
 1. Write the code that tests what is defined to be tested in the comments in each test.
 1. To try it out, either rerun Cypress if you closed it,

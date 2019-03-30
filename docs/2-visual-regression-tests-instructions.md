@@ -20,7 +20,7 @@ You're good to go to run your Visual Regression Tests.
 
 ## Writing the tests in `visual-todo-actions.e2e.js`
 
-1. Open the file `tests/visual/e2e-todo-actions.e2e.js`.
+1. Open the file `test/visual/e2e-todo-actions.e2e.js`.
 1. Write the visual test indicated in the comments.
 1. Run the tests and check that they are OK (at the [Applitools Eyes Dashboard](https://eyes.applitools.com)).
 1. You can run them again to verify that they passed.
