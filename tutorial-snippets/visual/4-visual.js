@@ -32,23 +32,8 @@ describe('todo actions (visual)', () => {
 
     cy.eyesCheckWindow('one todo added');
 
-    // Two todo list
-    cy.get('.new-todo').type('Write frontend tests{enter}');
-
-    cy.eyesCheckWindow('two todos added');
-
-    // Toggle complete
-    cy.get('.todo-list li:nth-child(1) .toggle').click();
-
-    cy.eyesCheckWindow('todo completed');
-
-    // Filter completed
-    cy.contains('Completed').click();
-
-    cy.eyesCheckWindow('completed filter');
-
     // Component tests
-    cy.eyesCheckWindow({tag: 'Footer (filter completed)', sizeMode: 'selector', selector: '.footer'});
-    cy.eyesCheckWindow({tag: 'Todo list (toggle completed)', sizeMode: 'selector', selector: '.todo-list'});
+    cy.eyesCheckWindow({tag: 'Footer', sizeMode: 'selector', selector: '.footer'});
+    cy.eyesCheckWindow({tag: 'Todo list', sizeMode: 'selector', selector: '.todo-list'});
   });
 });
