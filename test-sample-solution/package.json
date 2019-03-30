@@ -1,0 +1,36 @@
+{
+  "name": "mapping-out-territory",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "email": "gil@tayar.org",
+    "name": "Gil Tayar"
+  },
+  "scripts": {
+    "start": "serve -l 3000 src",
+    "test": "npm run eslint",
+    "eslint": "eslint 'src/**/*.js' 'test/**/*.js' 'test-sample-solution/**/*.js' 'tutorial-snippets/**/*.js'",
+    "test:sample-solution": "npm run eslint && start-test 3000 cypress:run:sample-solution",
+    "cypress:run:sample-solution": "cypress run --config integrationFolder=test-sample-solution --browser chrome",
+    "cypress:open:sample-solution": "cypress open --config integrationFolder=test-sample-solution",
+    "mocha:sample-solution": " mocha -r esm 'test-sample-solution/it/*.js' 'test-sample-solution/unit/*.js'",
+    "mocha": " mocha -r esm 'test/it/*.js' 'test/unit/*.js'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@applitools/eyes-cypress": "^3.6.1",
+    "chai": "^4.2.0",
+    "chai-dom": "^1.8.1",
+    "chai-jquery": "^2.1.0",
+    "cypress": "^3.2.0",
+    "eslint": "^5.15.3",
+    "eslint-plugin-prettier": "^3.0.1",
+    "esm": "^3.2.22",
+    "jquery-lite": "^2.2.3",
+    "jsdom": "^14.0.0",
+    "mocha": "^6.0.2",
+    "prettier": "^1.16.4",
+    "serve": "^10.1.2"
+  }
+}
