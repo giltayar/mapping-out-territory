@@ -4,7 +4,7 @@
 
 1. In the command line, run the TodoMVC application using `npm start`.
    You should start it in the background because you want to run the tests in a second.
-   * In Unix systems, use `npm start &` to run in the background.
+   * In Unix systems (MacOs and Linux), use `npm start &` to run in the background.
      You can kill it later by using `kill %1`.
    * In Windows, use `start npm start`. You can kill it later by closing the window.
 1. Try it out by navigating to the [app](http://localhost:3000).
@@ -15,7 +15,7 @@
 1. First, install Cypress using `npm install --save-dev cypress`.
 1. Let's open Cypress and see what passes and what fails.
 1. Run `npx cypress open`. This will open Cypress.
-   * The first time, Cypress initializes stuff. No worries.
+   * The first time, Cypress initializes stuff (you'll see a new `cypress` directory created). No worries.
    * You will get to a page that includes a list of all the tests.
 1. Click on the `todo-actions.e2e.js`. This will run the tests in the file.
 1. You can see from the window, that one tests passes, but two fail.
@@ -24,7 +24,7 @@
 ## Writing the tests in `todo-actions.e2e.js`
 
 1. Open the file `test/e2e/todo-actions.e2e.js`
-1. Remove the `throw new Error` in the first test.
+1. Remove the `throw new Error` line in the second test.
 1. Write the code that tests what is defined to be tested in the comments in each test.
 1. To try it out, either rerun Cypress if you closed it,
    or just click the "rerun" button in the existing Cypress window.
@@ -54,7 +54,7 @@ to run the Cypress tests! Let's do it.  Let's add Cypress to npm test.
 First, let's create a script that runs Cypress non-interactively, without opening the interactive window which
 chooses the tests. To do this, we use `cypress run`.
 
-1. Open a terminal and run `cypress run --browser chrome`.
+1. Open a terminal and run `npx cypress run --browser chrome`.
 
 You can see Cypress running all the E2E tests, which should pass.
 

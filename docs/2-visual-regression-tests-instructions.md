@@ -16,6 +16,11 @@ First, we need to register at Applitools, to get our free account.
 1. Run `export APPLITOOLS_API_KEY=<your-api-key>` if you're on Unix (Linux or MacOS).
 1. Run `set APPLITOOLS_API_KEY=<your-api-key>` if you're on Windows.
 
+## Install the Applitools Eyes Cypress Plugin
+
+1. Run `npm install --save-dev @applitools/eyes-cypress`
+1. Run `npx eyes-setup` to setup the plugin in the Cypress configuration files.
+
 You're good to go to run your Visual Regression Tests.
 
 ## Writing the tests in `visual-todo-actions.e2e.js`
@@ -23,6 +28,7 @@ You're good to go to run your Visual Regression Tests.
 1. Open the file `test/visual/e2e-todo-actions.e2e.js`.
 1. Write the visual test indicated in the comments.
 1. Run the tests and check that they are OK (at the [Applitools Eyes Dashboard](https://eyes.applitools.com)).
+   * Don't forget to run `npm start &` in the background!
 1. You can run them again to verify that they passed.
 
 ## Change the CSS

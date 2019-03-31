@@ -59,7 +59,7 @@ You can add it to multiple `it` calls, or if you want a whole group, to the `des
 ## Writing the tests in `todo-actions.it.js`
 
 1. Open the file `test/it/todo-actions.it.js`
-1. Remove the `throw new Error` in the first test.
+1. Remove the `throw new Error` line in the second test.
 1. Write the code that tests what is defined to be tested in the comments in each test.
 1. Try it out using `npm run mocha` or the debugger, till it works.
 1. Now fix the third test in the file the same way, until all three tests pass.
