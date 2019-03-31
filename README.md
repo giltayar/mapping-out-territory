@@ -47,7 +47,7 @@ The order of the workshop will be:
 1. [Integration tests](./docs/3-it-tests-instructions.md)
 1. [Unit tests](./docs/4-unit-tests-instructions.md)
 
-Good luck! And as we said, start from the instructions for the [E2E tests](./docs/e2e-tests-instructions.md).
+Good luck! And as we said, start from the instructions for the [E2E tests](./docs/1-e2e-tests-instructions.md).
 
 ## Copyright Notices
 
