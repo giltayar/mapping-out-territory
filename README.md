@@ -42,12 +42,12 @@ For each of these, the corresponding subdirectory under `test` (in the workshop 
 will contain a _part_ of the tests needed, and you will need to complete the parts that are missing.
 The order of the workshop will be:
 
-1. [E2E tests](./docs/1-e2e-tests-instructions.md)
-1. [Visual tests](./docs/2-visual-regression-tests-instructions.md)
-1. [Integration tests](./docs/3-it-tests-instructions.md)
-1. [Unit tests](./docs/4-unit-tests-instructions.md)
+1. [E2E tests](./instructions/1-e2e-tests-instructions.md)
+1. [Visual tests](./instructions/2-visual-regression-tests-instructions.md)
+1. [Integration tests](./instructions/3-it-tests-instructions.md)
+1. [Unit tests](./instructions/4-unit-tests-instructions.md)
 
-Good luck! And as we said, start from the instructions for the [E2E tests](./docs/1-e2e-tests-instructions.md).
+Good luck! And as we said, start from the instructions for the [E2E tests](./instructions/1-e2e-tests-instructions.md).
 
 ## Copyright Notices
 
