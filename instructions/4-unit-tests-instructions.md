@@ -18,7 +18,8 @@ Now we can run the unit tests using `npm run mocha`.
 1. Open the file `test/unit/store.unit.js`
 1. Remove the `throw new Error` line in the second test.
 1. Write the code that tests what is defined to be tested in the comments in each test.
-1. Try it out using `npm run mocha` or the debugger, till it works.
+1. Try it out using `npm run mocha` or the debugger, till it works
+   (remember, you can use `it.only` to run just one test).
 1. Now fix all the tests in the file the same way, until all three tests pass.
 
 ## You're done!
