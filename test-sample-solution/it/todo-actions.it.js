@@ -17,12 +17,9 @@ describe('todo-actions it', function() {
     global.window = window;
     global.document = window.document;
 
-    // No idea why, but _deleting_ this module from cache on every run makes the test run x3 faster
     delete require.cache[require.resolve('../../src/js/app.js')];
 
-    const run = require('../../src/js/app.js').default;
-
-    run();
+    require('../../src/js/app.js');
   });
   afterEach(() => {
     delete global.window;

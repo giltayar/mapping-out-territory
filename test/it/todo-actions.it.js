@@ -17,9 +17,9 @@ describe('todo-actions it', function() {
     global.window = window;
     global.document = window.document;
 
-    const run = require('../../src/js/app.js').default;
+    delete require.cache[require.resolve('../../src/js/app.js')];
 
-    run();
+    require('../../src/js/app.js');
   });
   afterEach(() => {
     delete global.window;
@@ -37,6 +37,7 @@ describe('todo-actions it', function() {
      * Add the following test
      *
      * 1. Toggling the "completed" button strikes out the todo
+     *    (there's no way to check for css styles, but you _can_ check that the `li` has the right class)
      * 2. Toggling it again will undo the strike out
      *
      * Note: To click on an element, use _element_.click()

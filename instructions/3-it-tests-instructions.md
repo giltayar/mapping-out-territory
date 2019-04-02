@@ -13,6 +13,14 @@ for querying the DOM.
 npm install --save-dev mocha chai chai-dom
 ```
 
+### Installing JSDOM
+
+Since we're testing the application using `jsdom`, we'll need that package:
+
+```sh
+npm install --save-dev jsdom
+```
+
 ### Installing esm
 
 Remember that we need the `esm` package to enable ES Module `import` statements? Let's install it:
@@ -70,6 +78,13 @@ Now we need to add the running of the integration tests to `npm test`,
 so change the `test` script in the `package.json` by adding a `&& npm run mocha` to the end of it.
 In this way, ESlint, Cypress tests, _and_ integration tests will run.
 
+* You can use `addNewTodo` which simulates typing in the `new-todo` input and then pressing {Enter}.
+* You can also use the function `$` which is a "poor man's jQuery" which wraps `document.querySelector`
+  for convenience.
+* Note that [`chai-dom`](https://www.npmjs.com/package/chai-dom) is an extension to chai that helps
+  with verifying thing about DOM elements. See how it is used in the first (given) test, and use it in your
+  other tests.
+
 
 ## [Bonus] Writing the tests in `todo-filtering.e2e.js`
 
@@ -92,6 +107,20 @@ In this way, ESlint, Cypress tests, _and_ integration tests will run.
 > expect($('...')).to.be.something;
 > })
 > ```
+
+## Modify `npm test` to run the mocha tests too
+
+Modify the `test` script so that besides Cypress E2E and visual tests, it will also run Mocha:
+
+```json
+{
+  "scripts": {
+    "test": "npm run eslint && start-test 3000 cypress:run && npm run mocha"
+  }
+}
+```
+
+Try and run it to see that it runs everything.
 
 ## Done
 

@@ -1,4 +1,5 @@
 'use strict';
+const {promisify} = require('util');
 const fs = require('fs');
 const path = require('path');
 const {describe, it, beforeEach, afterEach} = require('mocha');
@@ -10,35 +11,53 @@ require('chai').use(require('chai-dom'));
 const WEB_APP_HTML = fs.readFileSync(path.join(__dirname, '../../src/index.html'));
 
 const $ = selector => document.querySelector(selector);
+const $$ = selector => document.querySelectorAll(selector);
 
-describe('todo-filtering it', function() {
+describe.skip('todo-filtering it', function() {
   beforeEach(() => {
     const {window} = new JSDOM(WEB_APP_HTML, {url: 'http://localhost', runScripts: 'outside-only'});
     global.window = window;
     global.document = window.document;
 
-    const run = require('../../src/js/app.js').default;
+    delete require.cache[require.resolve('../../src/js/app.js')];
 
-    run();
+    require('../../src/js/app.js');
   });
   afterEach(() => {
     delete global.window;
     delete global.document;
   });
+  beforeEach(() => {
+    addNewTodo('Clean room{enter}');
+    addNewTodo('Learn JavaScript{enter}');
+    addNewTodo('Use Cypress{enter}');
 
-  it.skip('dummy test to exercise all the unused stuff - feel free to delete', () => {
-    addNewTodo('lalala');
-    expect(4).to.equal(4);
+    $('.todo-list li:nth-child(2) .toggle').click();
   });
 
-  /**
-   * Write the following "filtering" tests
-   *
-   * 1. Check that the "Active" filter in the bottom toolbar works
-   * 2. Check that the "Completed" filter in the bottom toolbar works
-   * 3. Check that the "All" Filter in the bottom toolbar works
-   *
-   */
+  it('should filter "Active" correctly', async () => {
+    $('a[href="#/active"]').click();
+
+    await promisify(setTimeout)(0);
+
+    expect($$('.todo-list li')).to.have.length(2);
+  });
+
+  it('should filter "Completed" correctly', async () => {
+    $('a[href="#/completed"]').click();
+
+    await promisify(setTimeout)(0);
+
+    expect($$('.todo-list li')).to.have.length(1);
+  });
+
+  it('should filter "All" correctly', async () => {
+    $('a[href="#/"]').click();
+
+    await promisify(setTimeout)(0);
+
+    expect($$('.todo-list li')).to.have.length(3);
+  });
 });
 
 function addNewTodo(text) {
