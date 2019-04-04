@@ -32,11 +32,20 @@ npm install --save-dev esm
 ### Adding a script that enables us to run it
 
 Theoretically, we can just run mocha using `npx mocha -r esm 'test/it/*.it.js'`, but that would not be nice.
-But we can add a script to the `package.json`. So open the `package.json` and add the following script:
+But we can add a script to the `package.json`. So open the `package.json` and add the following script (for MacOS/Linux users):
 
 ```json
   "scripts": {
-    "mocha": " mocha -r esm 'test/it/*.js'"
+    "mocha": " mocha -r esm 'test/it/*.it.js'"
+  }
+```
+
+Windows users, please use the one below
+(it's the same, without the single quotes)
+
+```json
+  "scripts": {
+    "mocha": " mocha -r esm test/it/*.it.js"
   }
 ```
 
