@@ -49,7 +49,7 @@ describe('todo-actions it', function() {
     /**
      * Add the following test
      *
-     * 1. The "Completed" button in the bottom should clear out all completed todos
+     * 1. The "Clear completed" button in the bottom should clear out all completed todos
      */
     throw new Error('test fails because you need to implement it!');
   });
