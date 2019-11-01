@@ -81,12 +81,6 @@ You can add it to multiple `it` calls, or if you want a whole group, to the `des
 1. Try it out using `npm run mocha` or the debugger, till it works.
 1. Now fix the third test in the file the same way, until all three tests pass.
 
-## Wrapping it up by automating running the tests
-
-Now we need to add the running of the integration tests to `npm test`,
-so change the `test` script in the `package.json` by adding a `&& npm run mocha` to the end of it.
-In this way, ESlint, Cypress tests, _and_ integration tests will run.
-
 * You can use `addNewTodo` which simulates typing in the `new-todo` input and then pressing {Enter}.
 * You can also use the function `$` which is a "poor man's jQuery" which wraps `document.querySelector`
   for convenience.
@@ -94,6 +88,21 @@ In this way, ESlint, Cypress tests, _and_ integration tests will run.
   with verifying thing about DOM elements. See how it is used in the first (given) test, and use it in your
   other tests.
 
+## Wrapping it up by automating running the tests
+
+Now we need to add the running of the integration tests to `npm test`,
+so change the `test` script in the `package.json` by adding a `&& npm run mocha` to the end of it.
+In this way, ESlint, Cypress tests, _and_ integration tests will run.
+
+```json
+{
+  "scripts": {
+    "test": "npm run eslint && start-test 3000 cypress:run && npm run mocha"
+  }
+}
+```
+
+Try and run it to see that it runs everything.
 
 ## [Bonus] Writing the tests in `todo-filtering.e2e.js`
 
@@ -116,20 +125,6 @@ In this way, ESlint, Cypress tests, _and_ integration tests will run.
 > expect($('...')).to.be.something;
 > })
 > ```
-
-## Modify `npm test` to run the mocha tests too
-
-Modify the `test` script so that besides Cypress E2E and visual tests, it will also run Mocha:
-
-```json
-{
-  "scripts": {
-    "test": "npm run eslint && start-test 3000 cypress:run && npm run mocha"
-  }
-}
-```
-
-Try and run it to see that it runs everything.
 
 ## Done
 

@@ -54,15 +54,9 @@ to run the Cypress tests! Let's do it.  Let's add Cypress to npm test.
 First, let's create a script that runs Cypress non-interactively, without opening the interactive window which
 chooses the tests. To do this, we use `cypress run`.
 
-1. Open a terminal and run `npx cypress run --browser chrome`.
+1. Open a terminal and run `npx cypress run`.
 
 You can see Cypress running all the E2E tests, which should pass.
-
-> Note: the `--browser chrome` is usually not used and not needed. If not used, Cypress runs the
-> browser headlessly in "Electron". Unfortunately, running it this way gives us Chrome v59 (!),
-> which does not support ES Modules, which we use in this TodoMVC. Adding `--browser chrome`
-> makes Cypress run it using the local Chrome browser. In CI, you can use a docker image
-> with Chrome installed, and Cypress (assures us it) runs it headlessly.
 
 But this is running with our background `npm start`. So first, we need to kill the `npm start` you ran at the beginning of this
 session.
@@ -77,7 +71,7 @@ So now we ne need to run `npm start`, run `cypress run` and then kill the `npm s
 ```json
 {
   "scripts": {
-    "cypress:run": "cypress run --browser chrome",
+    "cypress:run": "cypress run",
     "test": "npm run eslint && start-test 3000 cypress:run"
   }
 }

@@ -12,7 +12,7 @@
     "start": "serve -l 3000 src",
     "test": "npm run eslint && npm run mocha && start-test 3000 cypress:run",
     "eslint": "eslint 'src/**/*.js' 'test-sample-solution/**/*.js'",
-    "cypress:run": "cypress run --config integrationFolder=test-sample-solution --browser chrome",
+    "cypress:run": "cypress run --config integrationFolder=test-sample-solution",
     "cypress:open": "cypress open --config integrationFolder=test-sample-solution",
     "mocha": " mocha -r esm 'test-sample-solution/it/*.js' 'test-sample-solution/unit/*.js'"
   },
