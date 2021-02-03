@@ -7,7 +7,7 @@ You can find the presentation that accompanies this workshop
 
 ## Installation Instructions
 
-1. If you don't have Node.JS, Install Node.JS (any version from version 8 is fine).
+1. If you don't have Node.JS, Install Node.JS (any version from version 10 is fine).
 1. git-clone this repository.
    * `git clone https://github.com/giltayar/mapping-out-territory.git` in your code directory of
      choice.
