@@ -25,7 +25,7 @@ describe('todo actions (visual)', () => {
     cy.eyesCheckWindow('one todo added');
 
     // Component tests
-    cy.eyesCheckWindow({tag: 'Footer', sizeMode: 'selector', selector: '.footer'});
-    cy.eyesCheckWindow({tag: 'Todo list', sizeMode: 'selector', selector: '.todo-list'});
+    cy.eyesCheckWindow({tag: 'Footer', target: 'selector', selector: '.footer'});
+    cy.eyesCheckWindow({tag: 'Todo list', target: 'selector', selector: '.todo-list'});
   });
 });

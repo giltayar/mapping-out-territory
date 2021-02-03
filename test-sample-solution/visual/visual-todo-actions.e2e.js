@@ -48,7 +48,7 @@ describe('todo actions (visual)', () => {
     cy.eyesCheckWindow('completed filter');
 
     // Component tests
-    cy.eyesCheckWindow({tag: 'Footer (filter completed)', sizeMode: 'selector', selector: '.footer'});
-    cy.eyesCheckWindow({tag: 'Todo list (toggle completed)', sizeMode: 'selector', selector: '.todo-list'});
+    cy.eyesCheckWindow({tag: 'Footer (filter completed)', target: 'selector', selector: '.footer'});
+    cy.eyesCheckWindow({tag: 'Todo list (toggle completed)', target: 'selector', selector: '.todo-list'});
   });
 });
