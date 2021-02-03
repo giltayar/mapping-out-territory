@@ -4,7 +4,7 @@ const {expect} = require('chai');
 
 const {default: Store} = require('../../src/js/store');
 
-describe.only('store unit', function() {
+describe.only('store unit', function () {
   it('should add an item', () => {
     const store = new Store();
 

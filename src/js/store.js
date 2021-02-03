@@ -24,7 +24,7 @@ export default class Store {
   find(query) {
     const todos = this.liveTodos;
 
-    return todos.filter(todo => {
+    return todos.filter((todo) => {
       for (const k in query) {
         if (query[k] !== todo[k]) {
           return false;
@@ -74,7 +74,7 @@ export default class Store {
   remove(query) {
     let k;
 
-    const todos = this.liveTodos.filter(todo => {
+    const todos = this.liveTodos.filter((todo) => {
       for (k in query) {
         if (query[k] !== todo[k]) {
           return true;

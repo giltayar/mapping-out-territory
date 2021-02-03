@@ -14,7 +14,7 @@ export var ItemList;
  * @enum {Object}
  */
 const Empty = {
-  Record: {}
+  Record: {},
 };
 
 /**

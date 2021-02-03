@@ -14,8 +14,8 @@ describe('todo actions (visual)', () => {
         {width: 800, height: 600, name: 'firefox'},
         {deviceName: 'iPhone X', screenOrientation: 'landscape'},
         {deviceName: 'iPhone X', screenOrientation: 'portrait'},
-        {deviceName: 'Galaxy S5', screenOrientation: 'portrait'}
-      ]
+        {deviceName: 'Galaxy S5', screenOrientation: 'portrait'},
+      ],
     })
   );
 

@@ -9,10 +9,10 @@ require('chai').use(require('chai-dom'));
 
 const WEB_APP_HTML = fs.readFileSync(path.join(__dirname, '../../src/index.html'));
 
-const $ = selector => document.querySelector(selector);
-const $$ = selector => document.querySelectorAll(selector);
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
 
-describe('todo-filtering it', function() {
+describe('todo-filtering it', function () {
   beforeEach(() => {
     const {window} = new JSDOM(WEB_APP_HTML, {url: 'http://localhost', runScripts: 'outside-only'});
     global.window = window;

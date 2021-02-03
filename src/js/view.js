@@ -1,6 +1,6 @@
 import {qs, $on, $delegate} from './helpers.js';
 
-const _itemId = element => parseInt(element.parentNode.dataset.id || element.parentNode.parentNode.dataset.id, 10);
+const _itemId = (element) => parseInt(element.parentNode.dataset.id || element.parentNode.parentNode.dataset.id, 10);
 const ENTER_KEY = 13;
 const ESCAPE_KEY = 27;
 
@@ -22,7 +22,7 @@ export default class View {
 
     // Hack because JSDOM doesn't support links
     for (const filter of ['', 'active', 'completed'])
-      $on(qs(`.filters [href="#/${filter}"]`), 'click', e => {
+      $on(qs(`.filters [href="#/${filter}"]`), 'click', (e) => {
         window.location.hash = `/${filter}`;
         e.preventDefault();
       });

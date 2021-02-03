@@ -7,7 +7,7 @@ describe('todo actions (visual)', () => {
   beforeEach(() =>
     cy.eyesOpen({
       appName: 'TodoMVC',
-      batchName: 'TodoMVC Workshop'
+      batchName: 'TodoMVC Workshop',
     })
   );
 

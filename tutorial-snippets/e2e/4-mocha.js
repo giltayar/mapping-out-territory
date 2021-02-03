@@ -1,4 +1,4 @@
-describe('filtering', function() {
+describe('filtering', function () {
   beforeEach(() => {
     cy.visit('http://todomvc-app-for-testing.surge.sh/');
 

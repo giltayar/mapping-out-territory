@@ -45,7 +45,7 @@ export default class Controller {
     this.store.insert({
       id: Date.now(),
       title,
-      completed: false
+      completed: false,
     });
     this.view.clearNewTodo();
     this._filter(true);
@@ -138,7 +138,7 @@ export default class Controller {
         {
           '': emptyItemQuery,
           active: {completed: false},
-          completed: {completed: true}
+          completed: {completed: true},
         }[route]
       );
       this.view.showItems(data);

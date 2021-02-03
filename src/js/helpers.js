@@ -31,7 +31,7 @@ export function $on(target, type, callback, capture) {
  * @param {boolean} [capture] Capture the event
  */
 export function $delegate(target, selector, type, handler, capture) {
-  const dispatchEvent = event => {
+  const dispatchEvent = (event) => {
     const targetElement = event.target;
     const potentialElements = target.querySelectorAll(selector);
     let i = potentialElements.length;
@@ -55,4 +55,4 @@ export function $delegate(target, selector, type, handler, capture) {
  *
  * @returns {string} String with unsafe characters escaped with entity codes
  */
-export const escapeForHTML = s => s.replace(/[&<]/g, c => (c === '&' ? '&amp;' : '&lt;'));
+export const escapeForHTML = (s) => s.replace(/[&<]/g, (c) => (c === '&' ? '&amp;' : '&lt;'));

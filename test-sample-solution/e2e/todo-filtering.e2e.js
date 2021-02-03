@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 'use strict';
 
-describe('filtering', function() {
+describe('filtering', function () {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
 

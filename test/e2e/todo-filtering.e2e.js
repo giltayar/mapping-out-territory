@@ -9,4 +9,3 @@
  * 3. Check that the "All" Filter in the bottom toolbar works
  *
  */
-
