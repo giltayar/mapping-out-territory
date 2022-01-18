@@ -21,22 +21,14 @@ Since we're testing the application using `jsdom`, we'll need that package:
 npm install --save-dev jsdom
 ```
 
-### Installing esm
-
-Remember that we need the `esm` package to enable ES Module `import` statements? Let's install it:
-
-```sh
-npm install --save-dev esm
-```
-
 ### Adding a script that enables us to run it
 
-Theoretically, we can just run mocha using `npx mocha -r esm 'test/it/*.it.js'`, but that would not be nice.
+Theoretically, we can just run mocha using `npx mocha 'test/it/*.it.js'`, but that would not be nice.
 But we can add a script to the `package.json`. So open the `package.json` and add the following script (for MacOS/Linux users):
 
 ```json
   "scripts": {
-    "mocha": " mocha -r esm 'test/it/*.it.js'"
+    "mocha": " mocha 'test/it/*.it.js'"
   }
 ```
 
@@ -45,7 +37,7 @@ Windows users, please use the one below
 
 ```json
   "scripts": {
-    "mocha": " mocha -r esm test/it/*.it.js"
+    "mocha": " mocha test/it/*.it.js"
   }
 ```
 
@@ -114,7 +106,7 @@ Try and run it to see that it runs everything.
 > The easiest way to do this is `setTimeout(0)`, but if we want to do it nicely, we will use Node's `promisify`:
 >
 > ```js
-> const {promisify} = require('util');
+>  import {promisify} from 'util';
 > // ...
 > it('...', async () => {
 > // click on link...

@@ -7,7 +7,7 @@ it to be like this:
 
 ```json
   "scripts": {
-    "mocha": " mocha -r esm 'test/it/*.js' 'test/unit/*.js'"
+    "mocha": " mocha 'test/it/*.js' 'test/unit/*.js'"
   }
 ```
 

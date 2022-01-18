@@ -1,10 +1,10 @@
 'use strict';
-const {describe, it} = require('mocha');
-const {expect} = require('chai');
+import {describe, it} from 'mocha';
+import {expect} from 'chai';
 
-const {default: Store} = require('../../src/js/store');
+import {default as Store} from '../../src/js/store.js';
 
-describe.only('store unit', function () {
+describe('store unit', function () {
   it('should add an item', () => {
     const store = new Store();
 

@@ -1,26 +1,26 @@
-'use strict';
-const fs = require('fs');
-const path = require('path');
-const {describe, it, beforeEach, afterEach} = require('mocha');
-const {expect} = require('chai');
-const {JSDOM} = require('jsdom');
+import {readFileSync} from 'fs';
+import {join} from 'path';
+import {describe, it, beforeEach, afterEach} from 'mocha';
+import {use, expect} from 'chai';
+import chaiDom from 'chai-dom';
+import {JSDOM} from 'jsdom';
 
-require('chai').use(require('chai-dom'));
+use(chaiDom);
 
-const WEB_APP_HTML = fs.readFileSync(path.join(__dirname, '../../src/index.html'));
+const __dirname = new URL(import.meta.url).pathname;
+
+const WEB_APP_HTML = readFileSync(join(__dirname, '../../../src/index.html'));
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
 describe('todo-filtering it', function () {
-  beforeEach(() => {
+  beforeEach(async () => {
     const {window} = new JSDOM(WEB_APP_HTML, {url: 'http://localhost', runScripts: 'outside-only'});
     global.window = window;
     global.document = window.document;
 
-    delete require.cache[require.resolve('../../src/js/app.js')];
-
-    require('../../src/js/app.js');
+    await import(`../../src/js/app.js?cache-buster=${Math.random()}`);
   });
   afterEach(() => {
     delete global.window;
