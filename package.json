@@ -1,6 +1,7 @@
 {
   "name": "mapping-out-territory",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "type": "module",
   "private": true,
   "license": "MIT",
   "author": {
@@ -10,13 +11,18 @@
   "scripts": {
     "start": "serve -l 3000 src",
     "test": "npm run eslint",
+    "mocha": "mocha 'test/it/*.it.js'",
     "eslint": "eslint 'src/**/*.js' 'test/**/*.js' 'test-sample-solution/**/*.js' 'tutorial-snippets/**/*.js'"
   },
-  "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.19.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1",
-    "serve": "^11.3.2"
+    "chai": "^4.3.4",
+    "chai-dom": "^1.11.0",
+    "eslint": "^8.7.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jsdom": "^19.0.0",
+    "mocha": "^9.1.4",
+    "npm": "^8.3.1",
+    "prettier": "^2.5.1",
+    "serve": "^13.0.2"
   }
 }
