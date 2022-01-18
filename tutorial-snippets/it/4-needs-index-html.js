@@ -1,9 +1,11 @@
 'use strict';
-const fs = require('fs');
-const path = require('path');
-const {JSDOM} = require('jsdom');
+import {readFileSync} from 'fs';
+import {join} from 'path';
+import {JSDOM} from 'jsdom';
 
-const WEB_APP_HTML = fs.readFileSync(path.join(__dirname, '../../src/index.html'));
+const __dirname = new URL(import.meta.url).pathname;
+
+const WEB_APP_HTML = readFileSync(join(__dirname, '../../src/index.html'));
 
 describe('todo-actions it', function () {
   beforeEach(() => {

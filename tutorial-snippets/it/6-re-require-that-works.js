@@ -1,15 +1,18 @@
-const fs = require('fs');
-const path = require('path');
-const {JSDOM} = require('jsdom');
+'use strict';
+import {readFileSync} from 'fs';
+import {join} from 'path';
+import {JSDOM} from 'jsdom';
 
-const WEB_APP_HTML = fs.readFileSync(path.join(__dirname, '../../src/index.html'));
+const __dirname = new URL(import.meta.url).pathname;
 
-beforeEach(() => {
-  const {window} = new JSDOM(WEB_APP_HTML, {url: 'http://localhost'});
-  global.window = window;
-  global.document = window.document;
+const WEB_APP_HTML = readFileSync(join(__dirname, '../../src/index.html'));
 
-  const run = require('../../src/js/app.js').default;
+describe('todo-actions it', function () {
+  beforeEach(async () => {
+    const {window} = new JSDOM(WEB_APP_HTML, {url: 'http://localhost'});
+    global.window = window;
+    global.document = window.document;
 
-  run();
+    await import(`../../src/js/app.js?cache-buster=${Math.random()}`);
+  });
 });

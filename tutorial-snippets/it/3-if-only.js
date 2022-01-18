@@ -1,7 +1,7 @@
-const {expect} = require('chai');
+import {expect} from 'chai';
 
 before(async function () {
-  require('../src/dom-counter.js');
+  await import('../src/dom-counter.js');
 });
 
 it('inc button should work', async () => {
